@@ -15,8 +15,7 @@ celery_app = Celery(
 celery_app.conf.update(task_acks_late=True, task_default_queue="tasks")
 
 celery_app.conf.task_routes = {
-    "cheque.tasks.download_cheque": {"queue": "download_queue"},
-    "cheque.tasks.process_cheque": {"queue": "process_queue"},
+    "orchestration.tasks": {"queue": "orchestration"}
 }
 
 @after_setup_logger.connect

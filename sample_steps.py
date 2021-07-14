@@ -1,6 +1,16 @@
-from sample_orchestration import MyState
+from app.core.orchestrate import OrchestrationState
 from app.core.decorators import step
+import json
 
+class MyState(OrchestrationState):
+
+    def __init__(self, name):
+        self.name = name
+        self.age = 0
+
+    @classmethod
+    def from_dict(cls, payload):
+        return cls(name=json.loads(payload).get('name', 'noname'))
 
 @step(number=1, state_class=MyState)
 def step_one(state: MyState):
