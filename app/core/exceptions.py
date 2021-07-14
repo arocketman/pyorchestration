@@ -1,0 +1,2 @@
+class IllegalOrchestrationGraphException(Exception):
+    pass

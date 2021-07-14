@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Callable
 
+from app.core.exceptions import IllegalOrchestrationGraphException
+
 
 class OrchestrationState(ABC):
 
@@ -24,5 +26,8 @@ class Step:
         return str(self)
 
     def __lt__(self, other):
+        if self.step_number == other.step_number:
+            raise IllegalOrchestrationGraphException('Step numbers cannot be the same for a given orchestration!')
+
         return self.step_number < other.step_number
 

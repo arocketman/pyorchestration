@@ -4,7 +4,6 @@ import json
 from celery import Celery
 
 if __name__ == '__main__':
-
     celery_app = Celery(
         main="tasks",
         broker=os.getenv("CELERY_BROKER_STRING", "redis://localhost:6379/0")
@@ -20,8 +19,10 @@ if __name__ == '__main__':
 
     celery_app.send_task(
         "orchestration.tasks.orchestrate",
-        args=["default_orchestration", 
-        json.dumps({
-            "name": "Andrea"
-        })]
+        args=[
+            "default_orchestration",
+            json.dumps({
+                "name": "Andrea"
+            })
+        ]
     )
