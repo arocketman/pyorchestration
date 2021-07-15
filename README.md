@@ -6,7 +6,7 @@ It provides the following features:
 
 * Automatic retries of orchestration
 * Skippable steps
-* Multiple orchestration
+* Multiple orchestrations
 * Injectable configurations
 
 ## General concepts
