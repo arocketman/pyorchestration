@@ -6,6 +6,12 @@ from app.core.exceptions import IllegalOrchestrationGraphException
 
 class OrchestrationState(ABC):
 
+    def __init__(self, cfg=None):
+        if cfg is None:
+            cfg = {}
+
+        self.cfg = cfg
+
     @classmethod
     @abstractmethod
     def from_dict(cls, payload):

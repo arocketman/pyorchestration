@@ -1,3 +1,4 @@
+from app.core.commons import OrchestrationState
 from app.core.engine import Orchestration
 
 
@@ -6,12 +7,13 @@ class OrchestratorFactory:
     def __init__(self):
         self.orchestrations = {}
 
-    def get(self, name: str, state_class='') -> Orchestration:
-        if name not in self.orchestrations:
-            print(f'Registering new orchestration {name}')
-            self.orchestrations[name] = Orchestration(name, state_class)
+    def get(self, name: str) -> Orchestration:
+        return self.orchestrations.get(name, None)
 
-        return self.orchestrations[name]
+    def register(self, name: str, state_class: OrchestrationState, config_file=''):
+        print(f'Registering new orchestration {name}')
+        self.orchestrations[name] = Orchestration(name, state_class, config_file)
+        return self.get(name)
 
 
 factory = OrchestratorFactory()

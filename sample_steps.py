@@ -1,11 +1,11 @@
 from app.core.commons import OrchestrationState
 from app.core.decorators import step
-import json
 
 
 class MyState(OrchestrationState):
 
     def __init__(self, name):
+        super().__init__()
         self.name = name
         self.age = 0
 

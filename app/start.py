@@ -5,6 +5,8 @@ from logging import handlers
 from celery import Celery
 from celery.signals import after_setup_logger
 
+from app.state import factory
+
 celery_app = Celery(
     main="tasks",
     broker=os.getenv("CELERY_BROKER_STRING", "redis://localhost:6379/0")
@@ -30,3 +32,8 @@ def setup_logger(logger, *args, **kwargs):
     logger.addHandler(fh)
     logger.setLevel('INFO')
     return logger
+
+
+@celery_app.task(name="orchestration.tasks.orchestrate")
+def orchestrate_task(orchestration_name, payload):
+    factory.get(orchestration_name).orchestrate(payload)

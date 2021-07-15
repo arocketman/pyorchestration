@@ -23,6 +23,11 @@ def another_correct_step(state_object: TestState):
     state_object.age = 5
 
 
+@step(1, state_class=TestState, orchestration_name='cfg_orchestration', config_file='test/resources/example_cfg.yml')
+def cfg_step(state_object: TestState):
+    pass
+
+
 def test_orchestration_execution():
     orchestrator: Orchestration = factory.get('ok_orchestration')
     final_state = orchestrator.orchestrate('{}')
@@ -41,3 +46,12 @@ def test_same_step_number():
             state_object.name = 'hello_test_y'
 
         factory.get('test').orchestrate('{}')
+
+
+def test_read_orchestration():
+    orchestrator: Orchestration = factory.get('cfg_orchestration')
+    final_state = orchestrator.orchestrate('{}')
+    assert final_state.cfg.get('name') == 'Andrea'
+    assert final_state.cfg.get('username') == 'arocketman'
+    assert final_state.cfg['test']['foo'] == 'bar'
+
