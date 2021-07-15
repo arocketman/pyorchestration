@@ -14,16 +14,15 @@ def read(fname):
 # parse_requirements() returns generator of pip.req.InstallRequirement objects
 
 setup(
-    name="an_example_pypi_project",
-    version="0.0.4",
-    author="Andrew Carter",
-    author_email="andrewjcarter@gmail.com",
-    description=("An demonstration of how to create, document, and publish "
-                 "to the cheese shop a5 pypi.org."),
+    name="pyorchestration",
+    version="0.0.1",
+    author="Andrea Capuano",
+    author_email="andrealfie@gmail.com",
+    description=("pyorchestration!"),
     license="BSD",
     keywords="example documentation tutorial",
     url="http://packages.python.org/an_example_pypi_project",
-    packages=['pyorchestration', 'test'],
+    packages=['pyorchestration', 'test', 'pyorchestration.core'],
     install_requires=[
         'amqp==5.0.6',
         'attrs==21.2.0',
