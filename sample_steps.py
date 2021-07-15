@@ -1,5 +1,5 @@
-from app.core.commons import OrchestrationState
-from app.core.decorators import step
+from pyorchestration.core.commons import OrchestrationState
+from pyorchestration.core.decorators import step
 
 
 class MyState(OrchestrationState):

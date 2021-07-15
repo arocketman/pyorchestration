@@ -1,5 +1,5 @@
-from app.core.commons import OrchestrationState
-from app.core.engine import Orchestration
+from pyorchestration.core.commons import OrchestrationState
+from pyorchestration.core.engine import Orchestration
 
 
 class OrchestratorFactory:

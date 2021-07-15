@@ -23,7 +23,7 @@ setup(
     license="BSD",
     keywords="example documentation tutorial",
     url="http://packages.python.org/an_example_pypi_project",
-    packages=['app', 'test'],
+    packages=['pyorchestration', 'test'],
     install_requires=[
         'amqp==5.0.6',
         'attrs==21.2.0',

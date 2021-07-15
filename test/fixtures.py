@@ -1,4 +1,4 @@
-from app.core.commons import OrchestrationState
+from pyorchestration.core.commons import OrchestrationState
 
 
 class TestState(OrchestrationState):

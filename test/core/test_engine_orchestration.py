@@ -1,9 +1,9 @@
 import pytest
 
-from app.core.decorators import step
-from app.core.engine import Orchestration
-from app.core.exceptions import IllegalOrchestrationGraphException
-from app.state import factory
+from pyorchestration.core.decorators import step
+from pyorchestration.core.engine import Orchestration
+from pyorchestration.core.exceptions import IllegalOrchestrationGraphException
+from pyorchestration.state import factory
 from test.fixtures import TestState
 
 

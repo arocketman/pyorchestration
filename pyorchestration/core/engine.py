@@ -4,7 +4,7 @@ from typing import List
 
 import yaml
 
-from app.core.commons import OrchestrationState, Step
+from pyorchestration.core.commons import OrchestrationState, Step
 
 
 class Orchestration:

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Callable
 
-from app.core.exceptions import IllegalOrchestrationGraphException
+from pyorchestration.core.exceptions import IllegalOrchestrationGraphException
 
 
 class OrchestrationState(ABC):

@@ -5,7 +5,7 @@ from logging import handlers
 from celery import Celery
 from celery.signals import after_setup_logger
 
-from app.state import factory
+from pyorchestration.state import factory
 
 celery_app = Celery(
     main="tasks",

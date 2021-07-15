@@ -1,9 +1,9 @@
 import pytest
 
 from test.fixtures import TestState
-from app.core.decorators import step
-from app.core.engine import Orchestration
-from app.state import factory
+from pyorchestration.core.decorators import step
+from pyorchestration.core.engine import Orchestration
+from pyorchestration.state import factory
 
 
 @step(1, state_class=TestState, orchestration_name='ok_orchestration_1')

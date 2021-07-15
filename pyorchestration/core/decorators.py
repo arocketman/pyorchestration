@@ -1,5 +1,5 @@
-from app.core.commons import Step
-from app.state import factory
+from pyorchestration.core.commons import Step
+from pyorchestration.state import factory
 
 
 def step(number: int, state_class,  orchestration_name='default_orchestration', config_file=None, skippable=False):
