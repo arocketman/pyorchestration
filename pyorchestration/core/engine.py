@@ -10,6 +10,9 @@ from pyorchestration.core.commons import OrchestrationState, Step
 class Orchestration:
 
     def __init__(self, name, state_class, config_file=None):
+        """
+        Encapsulates the orchestration logic among the different steps.
+        """
         self.name = name
         self.state_class = state_class
         self.steps: List[Step] = []
@@ -19,6 +22,9 @@ class Orchestration:
                 self.cfg = yaml.safe_load(fp)
 
     def orchestrate(self, payload):
+        """
+        The actual orchestration among the different steps
+        """
         state: OrchestrationState = self.state_class.from_dict(json.loads(payload))
         state.cfg = self.cfg
         for step in sorted(self.steps):
@@ -27,6 +33,9 @@ class Orchestration:
         return state
 
     def execute_step(self, step: Step, state: OrchestrationState):
+        """
+        Executes a single orchestration step
+        """
         try:
             step.func(state)
         except Exception as e:

@@ -7,6 +7,9 @@ from pyorchestration.core.exceptions import IllegalOrchestrationGraphException
 class OrchestrationState(ABC):
 
     def __init__(self, cfg=None):
+        """
+        Abstract State, to be overridden for custom states usage
+        """
         if cfg is None:
             cfg = {}
 
@@ -21,6 +24,9 @@ class OrchestrationState(ABC):
 class Step:
 
     def __init__(self, step_number: int, func: Callable, skippable=False):
+        """
+        Encapsulates a step
+        """
         self.step_number = step_number
         self.func = func
         self.skippable = skippable

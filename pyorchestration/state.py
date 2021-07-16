@@ -5,6 +5,9 @@ from pyorchestration.core.engine import Orchestration
 class OrchestratorFactory:
 
     def __init__(self):
+        """
+        Keeps information about the different orchestrations
+        """
         self.orchestrations = {}
 
     def get(self, name: str) -> Orchestration:

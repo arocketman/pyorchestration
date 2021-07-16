@@ -42,12 +42,12 @@ Then, you simply define your orchestration using decorators:
 ```python
 @step(number=1, state_class=MyState)
 def say_hi(state: MyState):
-    print(f'hi {state.name}')
+    logging.info(f'hi {state.name}')
 
 
 @step(number=2, state_class=MyState)
 def say_bye(state: MyState):
-    print(f'bye {state.name}')
+    logging.info(f'bye {state.name}')
 ```
 
 That's it! You can launch the celery worker with celery command:

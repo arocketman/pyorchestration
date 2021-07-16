@@ -7,6 +7,8 @@ from celery.signals import after_setup_logger
 
 from pyorchestration.state import factory
 
+# Instantiate the celery app
+
 celery_app = Celery(
     main="tasks",
     broker=os.getenv("CELERY_BROKER_STRING", "redis://localhost:6379/0")
